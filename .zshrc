@@ -1,10 +1,41 @@
-# /etc/zshrc ou ~/.zshrc
-# Fichier de configuration principal de zsh
-# Formation Debian GNU/Linux par Alexis de Lattre
-# http://www.via.ecp.fr/~alexis/formation-linux/
+# Path to your oh-my-zsh configuration.
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="gnzh"
+# Comment this out to disable weekly auto-update checks
+export DISABLE_AUTO_UPDATE="true"
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME="robbyrussell"
 
-# new function
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
 function mydu () {
 du -d 0 -k ${1-$PWD}/* | sort -n | awk '
         BEGIN {
@@ -20,7 +51,6 @@ du -d 0 -k ${1-$PWD}/* | sort -n | awk '
                 print $0;
         }'
 }
-
 # Terminal colours (after installing GNU coreutils)
 NM="\[\033[0;38m\]" #means no background and white lines
 HI="\[\033[0;37m\]" #change this for letter colors
@@ -58,7 +88,7 @@ alias vncgreen3='vncviewer -compresslevel 9 greendotblade3.cs.nyu.edu:1'
 #  Gestion du ls : couleur + touche pas aux accents
 alias ls='gls --classify --tabsize=1 --literal --color=auto --show-control-chars --human-readable'
 
-# Demande confirmation avant d'écraser un fichier
+# Demande confirmation avant d'Ã©craser un fichier
 alias cp='gcp --interactive'
 alias mv='gmv --interactive'
 alias rm='grm --interactive'
@@ -74,19 +104,7 @@ alias c='clear'
 alias less='less --quiet'
 alias s='cd ..'
 
-#
-# 2. Prompt et Définition des touches
-#
-
-# exemple : ma touche HOME, cf man termcap, est codifiee K1 (upper left
-# key on keyboard) dans le /etc/termcap. En me referant a l'entree
-# correspondant a mon terminal (par exemple 'linux') dans ce fichier, je
-# lis : K1=\E[1~, c'est la sequence de caracteres qui sera envoyee au
-# shell. La commande bindkey dit simplement au shell : a chaque fois que
-# tu rencontres telle sequence de caractere, tu dois faire telle action.
-# La liste des actions est disponible dans "man zshzle".
-
-# Un charset français
+# Un charset franÃ§ais
 export LESSCHARSET="latin1"
 
 # switches the Zsh bindings back to the 'Emacs' mode
@@ -105,20 +123,11 @@ bindkey '^S' history-incremental-search-forward  # search forward
 bindkey '^b'    backward-word  # Move backward one word
 bindkey '^n'    forward-word   # Move forward one word
 
-# Prompt couleur (la couleur n'est pas la même pour le root et
-# pour les simples utilisateurs)
-if [ "`id -u`" -eq 0 ]; then
-  export PS1="%{[33;36;1m%}%T%{[0m%} %{[33;34;1m%}%n%{[0m[33;33;1m%}@%{[33;37;1m%}%m %{[33;32;1m%}%~%{[0m[33;33;1m%}
-%#%{[0m%} "
-else
-  export PS1="%{[33;36;1m%}%T%{[0m%} %{[33;31;1m%}%n%{[0m[33;33;1m%}@%{[33;37;1m%}%m %{[33;32;1m%}%~%{[0m[33;33;1m%}
-%#%{[0m%} "
-fi
 
 # Console linux, dans un screen ou un rxvt
 if [ "$TERM" = "linux" -o "$TERM" = "screen" -o "$TERM" = "rxvt" ]
 then
-  # Correspondance touches-fonction spécifique
+  # Correspondance touches-fonction spÃ©cifique
   bindkey '[1~' beginning-of-line       # Home
   bindkey '[4~' end-of-line             # End
 fi
@@ -126,7 +135,7 @@ fi
 # xterm
 if [ "$TERM" = "xterm" ]
 then
-  # Correspondance touches-fonction spécifique
+  # Correspondance touches-fonction spÃ©cifique
   bindkey '[H'  beginning-of-line       # Home
   bindkey '[F'  end-of-line             # End
 fi
@@ -147,75 +156,75 @@ fi
 unsetopt beep
 unsetopt histbeep
 unsetopt listbeep
-# >| doit être utilisés pour pouvoir écraser un fichier déjà existant ;
-# le fichier ne sera pas écrasé avec '>'
+# >| doit Ãªtre utilisÃ©s pour pouvoir Ã©craser un fichier dÃ©jÃ  existant ;
+# le fichier ne sera pas Ã©crasÃ© avec '>'
 unsetopt clobber
-# Ctrl+D est équivalent à 'logout'
+# Ctrl+D est Ã©quivalent Ã  'logout'
 unsetopt ignore_eof
-# Affiche le code de sortie si différent de '0'
+# Affiche le code de sortie si diffÃ©rent de '0'
 setopt print_exit_value
 # Demande confirmation pour 'rm *'
 unsetopt rm_star_silent
 # Correction orthographique des commandes
-# Désactivé car, contrairement à ce que dit le "man", il essaye de
+# DÃ©sactivÃ© car, contrairement Ã  ce que dit le "man", il essaye de
 # corriger les commandes avant de les hasher
 #setopt correct
 
-# Schémas de complétion
+# SchÃ©mas de complÃ©tion
 
-# - Schéma A :
-# 1ère tabulation : complète jusqu'au bout de la partie commune
-# 2ème tabulation : propose une liste de choix
-# 3ème tabulation : complète avec le 1er item de la liste
-# 4ème tabulation : complète avec le 2ème item de la liste, etc...
-# -> c'est le schéma de complétion par défaut de zsh.
+# - SchÃ©ma A :
+# 1Ã¨re tabulation : complÃ¨te jusqu'au bout de la partie commune
+# 2Ã¨me tabulation : propose une liste de choix
+# 3Ã¨me tabulation : complÃ¨te avec le 1er item de la liste
+# 4Ã¨me tabulation : complÃ¨te avec le 2Ã¨me item de la liste, etc...
+# -> c'est le schÃ©ma de complÃ©tion par dÃ©faut de zsh.
 
-# Schéma B :
-# 1ère tabulation : propose une liste de choix et complète avec le 1er item
+# SchÃ©ma B :
+# 1Ã¨re tabulation : propose une liste de choix et complÃ¨te avec le 1er item
 #                   de la liste
-# 2ème tabulation : complète avec le 2ème item de la liste, etc...
-# Si vous voulez ce schéma, décommentez la ligne suivante :
+# 2Ã¨me tabulation : complÃ¨te avec le 2Ã¨me item de la liste, etc...
+# Si vous voulez ce schÃ©ma, dÃ©commentez la ligne suivante :
 #setopt menu_complete
 
-# Schéma C :
-# 1ère tabulation : complète jusqu'au bout de la partie commune et
+# SchÃ©ma C :
+# 1Ã¨re tabulation : complÃ¨te jusqu'au bout de la partie commune et
 #                   propose une liste de choix
-# 2ème tabulation : complète avec le 1er item de la liste
-# 3ème tabulation : complète avec le 2ème item de la liste, etc...
-# Je n'ai malheureusement jamais réussi à mettre en place ce schéma
-# alors qu'il me paraît être le schéma idéal !
-# Si vous savez comment faire ça avec zsh -> alexis@via.ecp.fr
+# 2Ã¨me tabulation : complÃ¨te avec le 1er item de la liste
+# 3Ã¨me tabulation : complÃ¨te avec le 2Ã¨me item de la liste, etc...
+# Je n'ai malheureusement jamais rÃ©ussi Ã  mettre en place ce schÃ©ma
+# alors qu'il me paraÃ®t Ãªtre le schÃ©ma idÃ©al !
+# Si vous savez comment faire Ã§a avec zsh -> alexis@via.ecp.fr
 
-# Options de complétion
-# Quand le dernier caractère d'une complétion est '/' et que l'on
-# tape 'espace' après, le '/' est effaçé
-setopt auto_remove_slash
-# Fait la complétion sur les fichiers et répertoires cachés
-setopt glob_dots
+# Options de complÃ©tion
+# Quand le dernier caractÃ¨re d'une complÃ©tion est '/' et que l'on
+# tape 'espace' aprÃ¨s, le '/' est effaÃ§Ã©
+# setopt auto_remove_slash
+# Fait la complÃ©tion sur les fichiers et rÃ©pertoires cachÃ©s
+# setopt glob_dots
 
 # Traite les liens symboliques comme il faut
 #setopt chase_links
 
 # Quand l'utilisateur commence sa commande par '!' pour faire de la
-# complétion historique, il n'exécute pas la commande immédiatement
-# mais il écrit la commande dans le prompt
+# complÃ©tion historique, il n'exÃ©cute pas la commande immÃ©diatement
+# mais il Ã©crit la commande dans le prompt
 setopt hist_verify
-#ignorer les doublon historique + les commande commançant par espace
+#ignorer les doublon historique + les commande commanÃ§ant par espace
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
-# Si la commande est invalide mais correspond au nom d'un sous-répertoire
-# exécuter 'cd sous-répertoire'
+# Si la commande est invalide mais correspond au nom d'un sous-rÃ©pertoire
+# exÃ©cuter 'cd sous-rÃ©pertoire'
 setopt auto_cd
-# L'exécution de "cd" met le répertoire d'où l'on vient sur la pile
+# L'exÃ©cution de "cd" met le rÃ©pertoire d'oÃ¹ l'on vient sur la pile
 setopt auto_pushd
 # Ignore les doublons dans la pile
 setopt pushd_ignore_dups
-# N'affiche pas la pile après un "pushd" ou "popd"
+# N'affiche pas la pile aprÃ¨s un "pushd" ou "popd"
 setopt pushd_silent
 # "pushd" sans argument = "pushd $HOME"
 setopt pushd_to_home
 
-# Les jobs qui tournent en tâche de fond sont nicé à '0'
+# Les jobs qui tournent en tÃ¢che de fond sont nicÃ© Ã  '0'
 unsetopt bg_nice
 # N'envoie pas de "HUP" aux jobs qui tourent quand le shell se ferme
 unsetopt hup
@@ -225,14 +234,14 @@ unsetopt PROMPT_CR
 
 
 #
-# 4. Paramètres de l'historique des commandes
+# 4. ParamÃ¨tres de l'historique des commandes
 #
 
-# Nombre d'entrées dans l'historique
+# Nombre d'entrÃ©es dans l'historique
 export HISTORY=100000000
 export SAVEHIST=100000000
 export HISTSIZE=10000000000000
-# Fichier où est stocké l'historique
+# Fichier oÃ¹ est stockÃ© l'historique
 export HISTFILE=$HOME/.history
 # ignore some stuff 
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
@@ -246,12 +255,12 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_VERIFY
 #
-# 5. Complétion des options des commandes
+# 5. ComplÃ©tion des options des commandes
 #
 
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}'
-zstyle ':completion:*' max-errors 3 numeric
-zstyle ':completion:*' use-compctl false
+# zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}'
+# zstyle ':completion:*' max-errors 3 numeric
+# zstyle ':completion:*' use-compctl false
 
 autoload -U compinit
 compinit -i
