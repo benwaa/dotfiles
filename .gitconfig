@@ -1,0 +1,8 @@
+[alias]
+	ci = commit
+	st = status
+	br = branch
+	co = checkout
+        changes=diff --name-status -r
+        diffstat=diff --stat -r
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'

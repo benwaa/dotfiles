@@ -83,7 +83,7 @@ alias vncgreen3='vncviewer -compresslevel 9 greendotblade3.cs.nyu.edu:1'
 alias ls='gls --classify --tabsize=1 --literal --color=auto --show-control-chars --human-readable'
 
 # Demande confirmation avant d'écraser un fichier
-alias cp='gcp --interactive'
+#alias cp='gcp --interactive'
 alias mv='gmv --interactive'
 alias rm='grm --interactive'
 
