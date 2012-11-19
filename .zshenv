@@ -2,19 +2,21 @@
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # Path
-PATH=~/lua-local/bin:/usr/local/cuda/bin:$PATH
-PATH=$PATH:"/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:$HOME/bin"
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+PATH=~/lua-local/bin:$PATH
+#PATH=$PATH:/usr/local/cuda/bin:$PATH
+PATH=$PATH:"/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:$HOME/bin"/usr/texbin"
+export PATH
+#export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
 # LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/Users/corda/lua-local/lib:/usr/local/cuda/lib:/opt/local/lib:/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 # DYLD_LIBRARY_PATH
-export DYLD_LIBRARY_PATH=/usr/local/cuda/lib
+#export DYLD_LIBRARY_PATH=/usr/local/cuda/lib
 # MacPorts Installer addition on 2009-09-03_at_07:40:16: adding an appropriate MANPATH variable for use with MacPorts.
-export MANPATH=/opt/local/share/man:$MANPATH
+#export MANPATH=/opt/local/share/man:$MANPATH
 # Finished adapting your MANPATH environment variable for use with MacPorts.
 
-export PYTHONPATH="/Users/corda/Documents/Research/PhD/Usiris/python":$PYTHONPATH
+#export PYTHONPATH="/Users/corda/Documents/Research/PhD/Usiris/python":$PYTHONPATH
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
