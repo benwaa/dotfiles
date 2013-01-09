@@ -8,7 +8,6 @@ export DISABLE_AUTO_UPDATE="true"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
-
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -61,7 +60,8 @@ IN="\[\033[0m\]"
 #
 # 1. Les alias
 #
-alias mychrome='/Applications/Chromium.app/Contents/MacOS/Chromium --allow-running-insecure-content&'
+alias pygrep="find . -name \"*.py\" | xargs grep"
+alias mychrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --allow-running-insecure-content&'
 alias octave='exec "/Applications/Octave.app/Contents/Resources/bin/octave"'
 alias findFlash='lsof | grep FlashTmp'
 alias ql='qlmanage -p 2>/dev/null'
@@ -266,3 +266,6 @@ setopt RM_STAR_WAIT
 pman () {
     man -t "${1}" | open -f -a /Applications/Preview.app
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
