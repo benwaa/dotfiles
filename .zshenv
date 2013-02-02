@@ -4,7 +4,7 @@
 # Path
 PATH=~/lua-local/bin:$PATH
 #PATH=$PATH:/usr/local/cuda/bin:$PATH
-PATH=$PATH:"/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:$HOME/bin"/usr/texbin"
+PATH=$PATH:"/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:/usr/local/sbin:$HOME/bin:/usr/texbin"
 export PATH
 #export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 

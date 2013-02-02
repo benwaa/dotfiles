@@ -61,6 +61,8 @@ IN="\[\033[0m\]"
 #
 # 1. Les alias
 #
+alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h "
+alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias mychrome='/Applications/Chromium.app/Contents/MacOS/Chromium --allow-running-insecure-content&'
 alias octave='exec "/Applications/Octave.app/Contents/Resources/bin/octave"'
 alias findFlash='lsof | grep FlashTmp'
@@ -266,3 +268,6 @@ setopt RM_STAR_WAIT
 pman () {
     man -t "${1}" | open -f -a /Applications/Preview.app
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
