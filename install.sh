@@ -1,6 +1,10 @@
-git pull && git submodule init && git submodule update && git submodule status
+git submodule init
+git submodule update
+git submodule status
 
-ln -s `pwd`/oh-my-zsh ~/.oh-my-zsh
-ln -s `pwd`/.zshrc ~/.zshrc
-ln -s `pwd`/.zshenv ~/.zshenv
-ln -s `pwd`/clean.sh ~/clean.sh
+ln -si `pwd`/oh-my-zsh ~/.oh-my-zsh
+ln -si `pwd`/.zshrc ~/.zshrc
+ln -si `pwd`/.zshenv ~/.zshenv
+ln -si `pwd`/clean.sh ~/clean.sh
+ln -si `pwd`/.screenrc ~/.screenrc
+ln -si `pwd`/.gitconfig ~/.gitconfig
