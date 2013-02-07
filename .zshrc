@@ -71,7 +71,7 @@ openx(){
   fi
 }
 
-pr() {
+gitpr() {
   push
   open "https://github.com/benoitcorda/$(basename `pwd`)/pull/new/artsy:master...$(current_branch)"
 }
@@ -103,6 +103,8 @@ IN="\[\033[0m\]"
 #
 # 1. Les alias
 #
+alias gitrm='git ls-files --deleted -z | xargs -0 git rm'
+alias push='git push origin $(current_branch)'
 alias pygrep="find . -name \"*.py\" | xargs grep"
 alias mychrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --allow-running-insecure-content&'
 alias octave='exec "/Applications/Octave.app/Contents/Resources/bin/octave"'
