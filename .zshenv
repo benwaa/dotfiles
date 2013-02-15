@@ -4,7 +4,7 @@ export APPLICATION_ENV=Local
 # Path
 #PATH=~/lua-local/bin:/usr/local/cuda/bin:$PATH
 PATH=/usr/local/sbin:/usr/local/bin:$PATH:"/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:$HOME/bin"
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+export PATH=/usr/local/Cellar/ruby/1.9.3-p374/bin:$PATH:/opt/local/bin:/opt/local/sbin
 
 # LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/Users/corda/lua-local/lib:/usr/local/cuda/lib:/opt/local/lib:/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
@@ -16,7 +16,7 @@ export MANPATH=/opt/local/share/man:$MANPATH
 
 export PYTHONPATH="/Users/corda/Documents/Research/PhD/Usiris/python":$PYTHONPATH
 
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/Cellar/imagemagick/6.8.0-10/lib/pkgconfig
 
 # Viewer/Editeur par defaut (pour Crontab, CVS,...)
 export VISUAL=emacs

@@ -103,6 +103,10 @@ IN="\[\033[0m\]"
 #
 # 1. Les alias
 #
+alias artsy-server='FALLBACK_IMAGES_URL=http://stagic.artsy.net rails s'
+alias brake='bundle exec rake'
+alias brspec='bundle exec rspec'
+alias bspork='bundle exec spork'
 alias gitrm='git ls-files --deleted -z | xargs -0 git rm'
 alias push='git push origin $(current_branch)'
 alias pygrep="find . -name \"*.py\" | xargs grep"
