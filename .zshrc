@@ -34,6 +34,49 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+#from orta
+tab(){
+  osascript -e "
+  tell application \"System Events\"
+    tell process \"iTerm\"
+      click menu item \"Split Vertically With Current Profile\" of menu 1 of menu bar item \"Shell\" of menu bar 1
+    end tell
+  end tell
+
+  tell application \"iTerm\"
+   tell the current terminal
+    tell the current session
+     write text \"cd $(pwd)\"
+     write text \"$1\"
+    end tell
+   end tell
+  end tell"
+}
+
+openx(){
+  if test -n "$(find . -maxdepth 1 -name '*.xcworkspace' -print -quit)"
+  then
+    echo "Opening workspace"
+    open *.xcworkspace
+    return
+  else
+    if test -n "$(find . -maxdepth 1 -name '*.xcodeproj' -print -quit)"
+    then
+      echo "Opening project"
+      open *.xcodeproj
+      return
+    else
+      echo "Nothing found"
+    fi
+  fi
+}
+
+gitpr() {
+  push
+  open "https://github.com/benoitcorda/$(basename `pwd`)/pull/new/artsy:master...$(current_branch)"
+}
+
+
 # Customize to your needs...
 function mydu () {
 du -d 0 -k ${1-$PWD}/* | sort -n | awk '
@@ -62,6 +105,8 @@ IN="\[\033[0m\]"
 #
 alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h "
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-source-files"
+alias gitrm='git ls-files --deleted -z | xargs -0 git rm'
+alias push='git push origin $(current_branch)'
 alias pygrep="find . -name \"*.py\" | xargs grep"
 alias emacs='emacs -fn fixed'
 alias ipy='ipython'
@@ -221,7 +266,7 @@ export SAVEHIST=100000000
 export HISTSIZE=10000000000000
 # Fichier où est stocké l'historique
 export HISTFILE=$HOME/.history
-# ignore some stuff 
+# ignore some stuff
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
 export HISTIGNORE="cd:ls:ll:la:rm:[bf]g:clear"
 setopt APPEND_HISTORY
