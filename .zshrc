@@ -112,11 +112,21 @@ alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-so
 alias gitrm='git ls-files --deleted -z | xargs -0 git rm'
 alias push='git push origin $(current_branch)'
 alias pygrep="find . -name \"*.py\" | xargs grep"
+alias mychrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --allow-running-insecure-content&'
+alias octave='exec "/Applications/Octave.app/Contents/Resources/bin/octave"'
+alias findFlash='lsof | grep FlashTmp'
+alias ql='qlmanage -p 2>/dev/null'
+alias aqua='open -a Aquamacs'
+alias mytexiervnc='vncviewer -compresslevel 9 -via bird texier.cs:1'
+alias mybird='ssh -XC bird.cs.nyu.edu'
+alias research='cd /Users/corda/Documents/Research/PhD'
+alias xlearn='cd /Users/corda/Documents/Research/PhD/xlearn'
 alias emacs='emacs -fn fixed'
 alias ipy='ipython'
+alias gitx='open -a GitX .'
 
 #  Gestion du ls : couleur + touche pas aux accents
-alias ls='ls --classify --tabsize=1 --literal --color=auto --show-control-chars --human-readable'
+alias ls='gls --classify --tabsize=1 --literal --color=auto --show-control-chars --human-readable'
 
 # Demande confirmation avant d'écraser un fichier
 alias cp='cp --interactive'
@@ -172,7 +182,7 @@ if [ "$TERM" != "dumb" ]; then
     [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
     [ -e "$DIR_COLORS" ] || DIR_COLORS=""
     #eval "`dircolors -b $DIR_COLORS`"
-    alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
+    alias ls='gls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
 fi
 
 #
@@ -296,3 +306,6 @@ compinit -i
 # Helps avoid mistakes like 'rm * o' when 'rm *.o' was intended
 setopt RM_STAR_WAIT
 
+pman () {
+    man -t "${1}" | open -f -a /Applications/Preview.app
+}
