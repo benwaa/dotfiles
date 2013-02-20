@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="gnzh"
+export ZSH_THEME="ben"
 # Comment this out to disable weekly auto-update checks
 export DISABLE_AUTO_UPDATE="true"
 # Set name of the theme to load.
@@ -13,7 +13,7 @@ export DISABLE_AUTO_UPDATE="true"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -25,7 +25,7 @@ export DISABLE_AUTO_UPDATE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -107,34 +107,21 @@ alias artsy-server='FALLBACK_IMAGES_URL=http://stagic.artsy.net rails s'
 alias brake='bundle exec rake'
 alias brspec='bundle exec rspec'
 alias bspork='bundle exec spork'
+alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h "
+alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-source-files"
 alias gitrm='git ls-files --deleted -z | xargs -0 git rm'
 alias push='git push origin $(current_branch)'
 alias pygrep="find . -name \"*.py\" | xargs grep"
-alias mychrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --allow-running-insecure-content&'
-alias octave='exec "/Applications/Octave.app/Contents/Resources/bin/octave"'
-alias findFlash='lsof | grep FlashTmp'
-alias ql='qlmanage -p 2>/dev/null'
-alias aqua='open -a Aquamacs'
-alias mytexiervnc='vncviewer -compresslevel 9 -via bird texier.cs:1'
-alias mybird='ssh -XC bird.cs.nyu.edu'
-alias research='cd /Users/corda/Documents/Research/PhD'
-alias xlearn='cd /Users/corda/Documents/Research/PhD/xlearn'
 alias emacs='emacs -fn fixed'
 alias ipy='ipython'
-alias mymocap='ssh show@mocap'
-alias gitx='open -a GitX .'
-alias vnclagr='vncviewer -compresslevel 9 -via lagr@lagr2.cs.nyu.edu localhost:1'
-alias vncgreen2='vncviewer -compresslevel 9 -via corda@greendotblade2.cs.nyu.edu localhost:1'
-alias vncgreen1='vncviewer -compresslevel 9 -via benoit@greendotblade1.cs.nyu.edu localhost:1'
-alias vncgreen3='vncviewer -compresslevel 9 greendotblade3.cs.nyu.edu:1'
 
 #  Gestion du ls : couleur + touche pas aux accents
-alias ls='gls --classify --tabsize=1 --literal --color=auto --show-control-chars --human-readable'
+alias ls='ls --classify --tabsize=1 --literal --color=auto --show-control-chars --human-readable'
 
 # Demande confirmation avant d'écraser un fichier
-#alias cp='gcp --interactive'
-alias mv='gmv --interactive'
-alias rm='grm --interactive'
+alias cp='cp --interactive'
+alias mv='mv --interactive'
+alias rm='rm --interactive'
 
 # Raccourcis pour 'ls'
 alias ll='ls -l'
@@ -146,9 +133,6 @@ alias df='df -h'
 alias c='clear'
 alias less='less --quiet'
 alias s='cd ..'
-
-# Un charset français
-export LESSCHARSET="latin1"
 
 # switches the Zsh bindings back to the 'Emacs' mode
 bindkey -e
@@ -188,7 +172,7 @@ if [ "$TERM" != "dumb" ]; then
     [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
     [ -e "$DIR_COLORS" ] || DIR_COLORS=""
     #eval "`dircolors -b $DIR_COLORS`"
-    alias ls='gls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
+    alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
 fi
 
 #
@@ -312,9 +296,3 @@ compinit -i
 # Helps avoid mistakes like 'rm * o' when 'rm *.o' was intended
 setopt RM_STAR_WAIT
 
-pman () {
-    man -t "${1}" | open -f -a /Applications/Preview.app
-}
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

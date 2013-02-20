@@ -1,6 +1,7 @@
 git pull && git submodule init && git submodule update && git submodule status
 
-ln -s `pwd`/oh-my-zsh ~/.oh-my-zsh
-ln -s `pwd`/.zshrc ~/.zshrc
-ln -s `pwd`/.zshenv ~/.zshenv
-ln -s `pwd`/clean.sh ~/clean.sh
+ln -sf `pwd`/oh-my-zsh ~/.oh-my-zsh
+ln -sf `pwd`/ben.zsh-theme ~/.oh-my-zsh/themes/ben.zsh-theme
+ln -sf `pwd`/.zshrc ~/.zshrc
+ln -sf `pwd`/.zshenv ~/.zshenv
+ln -sf `pwd`/.gitconfig ~/.gitconfig
