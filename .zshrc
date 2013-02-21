@@ -131,7 +131,7 @@ alias ls='gls --classify --tabsize=1 --literal --color=auto --show-control-chars
 # Demande confirmation avant d'écraser un fichier
 alias cp='cp --interactive'
 alias mv='mv --interactive'
-alias rm='rm --interactive'
+alias rm='grm --interactive'
 
 # Raccourcis pour 'ls'
 alias ll='ls -l'

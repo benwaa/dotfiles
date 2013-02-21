@@ -13,6 +13,23 @@
         changes=diff --name-status -r
         diffstat=diff --stat -r
         new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+	#from orta
+	# View the SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph
+	# View the current working tree status using the short format
+	s = status -s
+	# Diff
+	d = difftool --patch-with-stat
+	# Pull in remote changes for the current repository and all its submodules
+	p = !"git pull; git submodule foreach git pull origin master"
+	# Clone a repository including all submodules
+	c = clone --recursive
+	# Commit all changes
+	ca = !git add . && git add -u && git commit -a
+	# Switch to a branch, creating it if necessary
+	go = checkout -B
+	# Undo a `git push`
+	undopush = push -f origin HEAD^:master
 [core]
 	whitespace = trailing-space,space-before-tab
 [color "branch"]
@@ -28,6 +45,43 @@
         added = yellow
         changed = green
         untracked = cyan
+[help]
+	autocorrect = 1
 [user]
 	email = benoit@artsymail.com
 	name = Ben
+
+# Use `origin` as the default remote on the `master` branch in all cases
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+
+# URL shorthands
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+	insteadOf = "github:"
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+# [difftool "Kaleidoscope"]
+# 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+# [difftool]
+# 	prompt = false
+# [diff]
+# 	tool = Kaleidoscope
+# [credential]
+# 	helper = osxkeychain
+# [mergetool "Kaleidoscope"]
+# 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+# 	trustExitCode = true
+# [mergetool]
+# 	prompt = false
+# [merge]
+# 	tool = Kaleidoscope
