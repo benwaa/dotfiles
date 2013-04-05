@@ -85,3 +85,5 @@
 # 	prompt = false
 # [merge]
 # 	tool = Kaleidoscope
+[rerere]
+	enable = 1

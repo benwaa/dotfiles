@@ -129,8 +129,8 @@ alias gitx='open -a GitX .'
 alias ls='gls --classify --tabsize=1 --literal --color=auto --show-control-chars --human-readable'
 
 # Demande confirmation avant d'écraser un fichier
-alias cp='cp --interactive'
-alias mv='mv --interactive'
+alias cp='gcp --interactive'
+alias mv='gmv --interactive'
 alias rm='grm --interactive'
 
 # Raccourcis pour 'ls'
@@ -309,3 +309,9 @@ setopt RM_STAR_WAIT
 pman () {
     man -t "${1}" | open -f -a /Applications/Preview.app
 }
+
+canalPlayer () {
+    rtmpdump -r "${1}" --quiet | "mplayer" -cache 8192 -
+}
+# env var for Artsy iOS deployment
+[ -r "/Users/corda/.zshrc_private" ] && source "/Users/corda/.zshrc_private"
