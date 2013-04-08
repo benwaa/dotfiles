@@ -82,7 +82,7 @@
 (global-set-key [f12]  'call-last-kbd-macro)
 (global-set-key [(meta c)] 'copy-region-as-kill)
 (global-set-key [(meta v)] 'yank)
-
+(global-set-key [(meta /)] 'comment-or-uncomment-region-or-line)
 ;;(custom-set-faces)
 
 ;; C-style
