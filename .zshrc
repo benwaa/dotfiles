@@ -60,8 +60,9 @@ IN="\[\033[0m\]"
 #
 # 1. Les alias
 #
-alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h "
-alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-source-files"
+alias joe="ssh joe.art.sy -l corda -R 8080:localhost:80"
+alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h -l"
+alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h -l --remove-source-files"
 alias pygrep="find . -name \"*.py\" | xargs grep"
 alias emacs='emacs -fn fixed'
 alias ipy='ipython'
