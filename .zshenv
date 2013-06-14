@@ -2,9 +2,8 @@
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # Path
-PATH=~/lua-local/bin:$PATH
-#PATH=$PATH:/usr/local/cuda/bin:$PATH
-PATH=$PATH:"/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:/usr/local/sbin:$HOME/bin:/usr/texbin"
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin
+PATH=~/lua-local/bin:/usr/local/bin:$PATH
 export PATH
 #export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 

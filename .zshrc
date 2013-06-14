@@ -270,4 +270,8 @@ pman () {
 }
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
+
+canalPlayer () {
+    rtmpdump -r "${1}" --quiet | "mplayer" -cache 8192 -
+}
