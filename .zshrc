@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="gnzh"
+export ZSH_THEME="ben"
 # Comment this out to disable weekly auto-update checks
 export DISABLE_AUTO_UPDATE="true"
 # Set name of the theme to load.
