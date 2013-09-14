@@ -12,6 +12,7 @@
         co = checkout
         changes=diff --name-status -r
         diffstat=diff --stat -r
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
         new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 [color "branch"]
         current = yellow reverse
@@ -26,3 +27,6 @@
         added = yellow
         changed = green
         untracked = cyan
+[user]
+	email = ben@mbp.com
+	name = Ben
