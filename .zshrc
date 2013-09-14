@@ -37,7 +37,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 function mydu () {
-du -d 0 -k ${1-$PWD}/* | sort -n | awk '
+du -c -d 0 -k ${1-$PWD}/* | sort -n | awk '
         BEGIN {
                 split("KB,MB,GB,TB", Units, ",");
         }

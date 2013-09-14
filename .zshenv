@@ -3,7 +3,7 @@
 
 # Path
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin
-PATH=~/lua-local/bin:/usr/local/bin:$PATH
+PATH=~/lua-local/bin:/usr/local/bin:$PATH:/usr/local/cuda/bin
 export PATH
 #export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
