@@ -1,7 +1,16 @@
+ABSPATH=$(cd "$(dirname "$0")"; pwd)
+
 git pull && git submodule init && git submodule update && git submodule status
 
-ln -sf "`pwd`/oh-my-zsh" ~/.oh-my-zsh
-ln -sf "`pwd`/ben.zsh-theme" ~/.oh-my-zsh/themes/ben.zsh-theme
-ln -sf "`pwd`/.zshrc" ~/.zshrc
-ln -sf "`pwd`/.zshenv" ~/.zshenv
-ln -sf "`pwd`/.gitconfig" ~/.gitconfig
+#add any file you wanna symlink here
+files=( .zshrc .zshenv .screenrc .gitconfig)
+
+for var in "${files[@]}"
+do
+  # create symlink in the home dir
+  ln -vsf "$ABSPATH/${var}" "$HOME/${var}"
+done
+
+
+ln -vsf "$ABSPATH/oh-my-zsh" ~/.oh-my-zsh
+ln -vsf "$ABSPATH/ben.zsh-theme" ~/.oh-my-zsh/themes/ben.zsh-theme
